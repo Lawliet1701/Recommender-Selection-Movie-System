@@ -1,0 +1,115 @@
+﻿@model IEnumerable<FilmSystem.Models.Movie>
+@{
+    ViewBag.Title = "User Movie";
+}
+
+<div class="col-md-12  jumbotron">
+    
+
+    <div class="col-md-3 filmAboutUser text-center">
+        <!-- Імя юзера із зареганого-->
+        <h4 class="User ">Bulletproof_UA</h4>
+        <!-- картінка юзера-->
+        <p><img src="~/Content/img/AccountandControl.png" class="img-rounded" alt="user"></p>
+        
+    </div>
+    <div class="col-md-3">
+        <br />
+        <h4> Переглянутих фільм </h4>
+        <h4> Середня оцінка </h4>
+        
+        <h4> На сайті з </h4> 
+    </div>
+    <div class="col-md-2">
+        <br />
+        <h4> 50</h4>
+        <h4> 7.8 </h4>
+        <h4> 23.05.2016</h4>
+    </div>
+    <div class="col-md-3">
+        <br />
+        
+    </div>
+ 
+</div>
+<br />
+
+<!-- Загружати фільмів 30-->
+@for (int i = 0; i < 30; i++)
+{
+
+
+    Random rand = new Random();
+    double r = rand.NextDouble() * (9 - 4) + 4;
+    r = Math.Round(r, 1);
+    double w = rand.Next(6, 10);
+   
+
+
+    int CountViews = ((int)r * 10) / 2 + 12;
+
+    int A = 5;
+    int C = i * A + 1;
+    String b = " http://kinopoisk.ru/images/film_big/" + @Model.ElementAt(C).FilmID + ".jpg";
+
+<div class="row ">
+
+    <div class="col-md-10 col-md-offset-1 filmAbout">
+        <!-- for по усій історії переглядів-->
+        
+        <div class="col-md-2">
+            <!-- картінка на фільм-->
+          
+        <p><a href=@Url.Action("AboutFilm", "Home",  new { item_id = Model.ElementAt(C).Id })><img src=@b alt=""> </a></p>
+        </div>
+        <div class="col-md-8 ">
+            <!-- or text-center-->
+            <h3 class="col-md-offset-2" style="font-size: 150%; color:burlywood"> @Model.ElementAt(C).NameRU</h3>
+        </div>
+            <div class="col-md-3 col-md-offset-1">
+                <!-- інфа про фільм-->
+                <h4>Рік </h4>
+                <h4>Прем'єра</h4>
+                
+                
+                <!-- довжина фільму-->
+                <h4>Тривалість</h4>
+                <h4>Кількість переглядів</h4>
+                <!-- пропишеш які ти там оцінки юзати будеш-->
+           
+
+            </div>
+            <div class="col-md-1" >
+                <h4 >@Model.ElementAt(C).Year</h4>
+                <h4>@Model.ElementAt(C).PremiereWorld</h4>
+                 <h4>@Model.ElementAt(C).Length</h4>
+                <h4> @CountViews</h4>
+            </div>
+            <div class="col-md-3" style="padding-left:55px;">
+                <h4> Ваш рейтинг </h4>
+                <h4> Рейтинг сайту </h4>
+                <h4> Рейтинг IMDB</h4>
+                <h4> Рейтинг Kinopoisk</h4>
+            </div>
+            <div class="col-md-1">
+                <h4> @w</h4>
+                <h4> @r</h4>
+                <h4> @Model.ElementAt(C).RatingIMDB</h4>
+                <h4> @Model.ElementAt(C).RatingKP</h4>
+            </div>
+        
+    </div>
+</div>
+}
+
+
+<div class="col-md-offset-4 " >
+    <ul class="pagination text-center">
+        <li><a href="#">«</a></li>
+        @for (int i = 1; i < 7; i++)
+        {
+            <li><a href="#">@i</a></li>
+        }
+        <li><a href="#">»</a></li>
+    </ul>
+</div>

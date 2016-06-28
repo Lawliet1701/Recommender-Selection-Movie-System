@@ -1,0 +1,132 @@
+﻿
+
+buttonTitle{
+    padding-top: 10px; 
+    text-align: center;
+    background-color:gray;
+    font-size: 18px;
+}
+
+
+.MarkBox{
+
+     height: 70px;
+     padding-left: 45px;
+     color: white;
+     background-color: gray;
+     margin-bottom: 20px;
+     border-radius: 0px 0px 15px 15px;
+}
+.filmFront a{
+    color: white;
+}
+
+.filmBoxText{
+     height: 35px;
+     vertical-align: middle;
+}
+.filmBox {
+  padding-top: 5px;
+  padding-bottom: 1px;
+  margin-bottom: 0px;
+  line-height: 2.1428571435;
+  color: white;
+  text-align:center;
+  text-shadow: 4px 3px 3px rgb(0,0,0);
+  background-color: gray;
+ 
+  
+}
+
+.filmBox h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.filmBox p {
+  line-height: 1.4;
+}
+
+.filmBox img{
+    
+    background-color: gray;
+    display: inline-block;
+    height: 320px;
+    width: 240px;
+    border-radius: 15px 15px 15px 15px;
+}
+.container .filmBox {
+  border-radius:  15px 15px 0px 0px;;
+}
+
+
+.filmAbout {
+  padding-top: 15px;
+
+  padding-bottom: 15px;
+  
+  margin-bottom: 20px;
+  line-height: 2.1428571435;
+  color: white;
+  text-shadow: 1px 2px 3px rgb(0,0,0);
+  background-color: #4E5D6C;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.filmAboutUser img{
+  display: inline-block;
+  height: auto;
+  max-width: 80%;
+    
+   
+}
+.filmAbout img{
+    width: 150px;
+    height: 220px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+
+
+.filmAboutMain {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  
+  margin-bottom: 20px;
+  line-height: 2.1428571435;
+  color: white;
+  text-shadow: 1px 2px 3px rgb(0,0,0);
+  background-color: #4E5D6C;
+  border-radius: 10px 10px 10px 10px;
+
+
+}
+
+.filmAboutMain img{
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.filmAboutMain h1{
+  text-align: center;
+  padding-left: 15px;
+  font-size: 150%;
+  color:burlywood;
+}
+
+.filmAboutMain h3{
+  margin: 5px auto ;
+  font-size: 18px;
+  padding-right: 30px;
+  text-shadow: 1px 1px 2px rgb(0,0,0);
+}
+
+footer {
+    text-align: center;
+}
+
+.footernav {
+    text-align: center;
+}

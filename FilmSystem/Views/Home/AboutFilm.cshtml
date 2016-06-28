@@ -1,0 +1,74 @@
+﻿@model FilmSystem.Models.Movie
+@{
+    ViewBag.Title = "About Film";
+}
+
+
+
+<div class="row">
+    <div class="col-md-10 col-lg-offset-1  filmAboutMain">
+        <div class="col-lg-6">
+           
+            @{String b = " http://kinopoisk.ru/images/film_big/" + Model.FilmID + ".jpg"; }
+            <p> <img src=@b alt="Назва фільму"></p>
+           
+        </div>
+
+        <!--{  double R= double.Parse(Model.RatingIMDB);
+            double A = double.Parse(Model.RatingKP);
+            double M = R + A / 2; }
+            -->
+        @{ 
+            Random rand = new Random();
+            double r= rand.NextDouble() * (9 - 4) + 4;
+            r = Math.Round(r, 1);
+
+
+            int CountViews = ((int)r*10)/2 + 12;
+        }
+
+        <div class="row"> 
+            <div class="col-lg-6">
+                <h1> @Model.NameRU</h1>
+                <h1> @Model.NameEN</h1>
+                <h3 class="text-center">@Model.Slogan </h3>
+                <br />
+                <div class="col-lg-6">
+                    <h3>Рік </h3>
+                    <h3>Прем'єра</h3>
+                    <h3>Бюджет</h3>
+                    <h3>Вікове обмеження</h3>
+                    <!-- довжина фільму-->
+                    <h3>Тривалість</h3>
+                    <h3>Кількість переглядів</h3>
+                    <!-- пропишеш які ти там оцінки юзати будеш-->
+                    <h3> Рейтинг сайту </h3>
+                    <h3> Рейтинг IMDB</h3>
+                    <h3> Рейтинг Kinopoisk</h3>
+                </div>
+                <div class="col-lg-6">
+                    <h3>@Model.Year</h3>
+                    <h3>@Model.PremiereWorld</h3>
+                    <h3>$ @Model.Budget</h3>
+                    <h3>@Model.RatingAgeLimits</h3>
+                    <h3>@Model.Length</h3>
+                    
+                    <!-- довжина фільму-->
+                    <h3> @CountViews</h3>
+                    <h3> @r</h3>
+                    <h3> @Model.RatingIMDB</h3>
+                    <h3> @Model.RatingKP</h3>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 text-justify">
+                    <br />
+                    <h3>@Model.Description</h3>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model FilmSystem.Models.ExternalLoginConfirmationViewModel
+@{
+    ViewBag.Title = "Реєстрація";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>Обєднання вашого облікового запису @ViewBag.LoginProvider.</h3>
+
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Форма зв'язку</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p class="text-info">
+        Ви успішно пройшли провірку  <strong>@ViewBag.LoginProvider</strong>
+        Введіть ім'я користувача на цему сайті нижчи і натисніть кнопку "Зареєструватися", щоб завершити вхід.    
+    </p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Реєстрація" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

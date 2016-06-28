@@ -1,0 +1,90 @@
+﻿@model IEnumerable<FilmSystem.Models.Movie>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link rel="stylesheet" href="~/Content/WorkPLZ.css" >
+
+<link href="~/Content/Sstyles.css" rel="stylesheet" type="text/css" /> 
+<link href="~/Content/jquery.rating.css" rel="stylesheet" type="text/css" />
+
+
+
+<div class="col-lg-12 jumbotron">
+    <div class="col-lg-8">
+        <h1>HD Movies</h1>
+        <p class="lead"> Рекомендаційна система </p>
+    </div>
+    <div class="col-lg-4 ">
+        <br />
+          <a href="/home/index" class="btn btn-primary btn-lg active " style="width : 300px; margin-bottom: 10px;" role="button" > Колаборативна фільтрація</a>
+          <a href="/home/index" class="btn btn-primary btn-lg active " style="width : 300px" role="button" > Асоціативні правила</a>
+      
+    </div>
+</div>
+
+
+<div class="row ">
+
+   
+
+    @for (int i = 0; i < 12; i++)
+    {
+
+
+        // Вибираєм рандомно фільм
+
+        Random rand = new Random();
+        int position = rand.Next(1, Model.Count());
+       
+
+        // Формування URL постера
+        String a = " http://kinopoisk.ru/images/film_big/" + @Model.ElementAt(position).FilmID + ".jpg";
+
+
+        <div class="col-lg-3  ">
+            <div class="filmFront filmBox">
+                
+
+                <h4 class="filmBoxText"> <a href=@Url.Action("AboutFilm", "Home", new { item_id = Model.ElementAt(position).Id })>@Model.ElementAt(position).NameRU</a></h4>
+
+                <p><a href=@Url.Action("AboutFilm", "Home", new { item_id = Model.ElementAt(position).Id }) ><img src="@a" alt="@Model.ElementAt(position).NameRU"> </a></p>
+
+           
+            </div>
+            <!-- далі зірочки-->
+                     
+
+                 <div class="rating_3 MarkBox">
+                    <input type = "hidden" name="val" value="5" />
+                    <!--<input type = "hidden" name="votes" value="5" />-->
+                    <input type = "hidden" name="vote-id" value="3" />
+                    <input type = "hidden" name="cat_id" value="3" />
+                    <input type = "hidden" name="vote-id" value="3" />
+
+                </div>
+         
+             
+</div>
+    }
+    
+</div>
+
+<div class = "footernav">
+    <ul class="pagination">
+        <li><a href="#">«</a></li>
+        @for (int i = 1; i < 6; i++)
+        {
+            <li><a href="#">@i</a></li>
+        }
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
+
+
+
+
+<script type="text/javascript" src="~/Scripts/jquery.webRating.js"></script>
+<!-- or -->
+<script type="text/javascript" src="~/Scripts/jquery.webRating.min.js"></script>
